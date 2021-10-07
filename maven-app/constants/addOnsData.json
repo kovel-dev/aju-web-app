@@ -1,0 +1,33 @@
+[
+  {
+    "title": "Classes and events I have sponsored",
+    "items": [
+      {
+        "img": "/",
+        "program": "PROGRAM NAME",
+        "date": "DATE | TIME",
+        "sponsor": "Sponsor",
+        "link": "/my-account/event1"
+      }
+    ]
+  },
+  {
+    "title": "Classes and events I have purchased in full",
+    "items": [
+      {
+        "img": "/",
+        "program": "PROGRAM NAME",
+        "date": "DATE | TIME",
+        "sponsor": "Sponsor",
+        "link": "/my-account/event1"
+      },
+      {
+        "img": "/",
+        "program": "PROGRAM NAME",
+        "date": "DATE | TIME",
+        "sponsor": "Sponsor",
+        "link": "/my-account/event1"
+      }
+    ]
+  }
+]

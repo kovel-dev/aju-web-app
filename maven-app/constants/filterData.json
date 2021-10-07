@@ -1,0 +1,24 @@
+[
+  {
+    "label":"Location",
+    "id":"location",
+    "name":"deliveryType",
+    "options": [
+      {"key": "in-person", "value": "In-Person"},
+      {"key": "online", "value": "Online"}
+    ],
+    "placehold":"Select"
+  },
+  {
+    "label":"Type",
+    "id":"type",
+    "name":"type",
+    "options": [
+      {"key": "class", "value": "Class"},
+      {"key": "event", "value": "Event"},
+      {"key": "on-demand", "value": "On Demand"},
+      {"key": "series", "value": "Series"}
+    ],
+    "placehold":"Select"
+  }
+]

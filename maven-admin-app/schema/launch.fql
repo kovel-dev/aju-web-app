@@ -1,0 +1,543 @@
+/*
+@Note: Create Collections: users, products, tags
+This will loop the following array and return exact array if no errors found
+P.S: You can use Abort() to stop the loop but for this case, we want to continue the whole process
+*/ 
+Foreach(
+  [
+    'users', 'products', 'tags', 'assets', 'promo_codes', 
+    'questions', 'hosts', 'articles', 'organizations', 'newsletters', 
+    'contact_us', 'sponsor_requests', 'host_requests', 'pages',
+    'orders', 'attendees', 'partner_requests', 'suggestions'
+  ],
+  Lambda(
+    'name',
+    If(Exists(Collection(Var('name'))), 
+      Concat([Var('name'), 'true'], ' '),
+      CreateCollection({ name: Var('name'), history_days: 0})
+    ),
+  ),
+)
+
+/*
+@Note: Create Indexes
+P.S: You can use Abort() to stop the loop but for this case, we want to continue the whole process
+*/ 
+// Create Indexes By Values, Serialized
+Foreach(
+  [
+    // users list
+    {name: 'users', source: 'users', values: [
+      { field: ['data', 'first_name'] },
+      { field: ['data', 'last_name'] },
+      { field: ['data', 'email'] },
+      { field: ['data', 'role'] },
+      { field: ['data', 'status'] },
+      { field: ['data', 'is_verified'] },
+      { field: ['ref'] },
+    ]},
+    // products list
+    {name: 'products', source: 'products', values: [
+      { field: ['data', 'name'] }, // 0
+      { field: ['data', 'type'] }, // 1
+      { field: ['data', 'deliveryType'] }, // 2
+      { field: ['data', 'status'] }, // 3
+      { field: ['data', 'level'] }, // 4
+      { field: ['data', 'startDt'] }, // 5
+      { field: ['data', 'endDt'] }, // 6
+      { field: ['data', 'registrationStartDt'] }, // 7
+      { field: ['data', 'registrationEndDt'] }, // 8
+      { field: ['ref'] }, // 9
+      { field: ['data', 'slug'] }, // 10 
+      { field: ['data', 'description'] }, // 11
+      { field: ['data', 'shortDescription'] }, // 12
+      { field: ['data', 'categorydeliveryType'] }, // 13
+      { field: ['data', 'millisecondStartDt'] }, // 14
+      { field: ['data', 'millisecondEndDt'] }, // 15
+      { field: ['data', 'millisecondRegistrationStartDt'] }, // 16
+      { field: ['data', 'millisecondRegistrationEndDt'] }, // 17
+      { field: ['data', 'price'] }, // 18
+      { field: ['data', 'capacity'] }, // 19
+      { field: ['data', 'language'] }, // 20
+      { field: ['data', 'link'] }, // 21
+      { field: ['data', 'address'] }, // 22
+      { field: ['data', 'duration'] }, // 23
+      { field: ['data', 'desktopImage'] }, // 24
+      { field: ['data', 'mobileImage'] }, //  25
+      { field: ['data', 'desktopImageUrl'] }, // 26
+      { field: ['data', 'mobileImageUrl'] }, // 27
+      { field: ['data', 'sponsorMeta'] }, // 28
+      { field: ['data', 'seriesMeta'] }, // 29
+      { field: ['data', 'ondemandMeta'] }, // 30
+      { field: ['data', 'hostMeta'] }, // 31
+      { field: ['data', 'tagMeta'] }, // 32
+      { field: ['data', 'questionMeta'] }, // 33
+      { field: ['data', 'bannerMeta'] }, // 34
+      { field: ['data', 'isFeatured'] }, // 35
+      { field: ['data', 'deletedAt'] }, // 36
+      { field: ['data', 'createdAt'] }, //  37
+      { field: ['data', 'updatedAt'] }, // 38
+      { field: ['data', 'createdBy'] }, // 39
+      { field: ['data', 'imageUrl'] }, // 40
+      { field: ['data', 'isReserved'] }, // 41
+      { field: ['data', 'reservedBy'] }, // 42
+      { field: ['data', 'reservedAt'] }, // 43
+      { field: ['data', 'reservedComment'] }, // 44
+    ]},
+    // assets list
+    {name: 'assets', source: 'assets', values: [
+      { field: ['data', 'name'] },
+      { field: ['data', 'type'] },
+      { field: ['data', 'mime'] },
+      { field: ['data', 'size'] },
+      { field: ['data', 'width'] },
+      { field: ['data', 'height'] },
+      { field: ['data', 'cloudinary_meta', 'public_id'] },
+      { field: ['data', 'url'] },
+      { field: ['data', 'secure_url'] },
+      { field: ['data', 'created_at'] },
+      { field: ['ref'] },
+    ]},
+    // promo_codes list
+    {name: 'promo_codes', source: 'promo_codes', values: [
+      { field: ['data', 'name'] }, // 0
+      { field: ['data', 'code'] }, //  1
+      { field: ['data', 'status'] }, // 2
+      { field: ['data', 'percentage'] }, // 3
+      { field: ['data', 'use_limit'] }, // 4
+      { field: ['data', 'use_counter'] }, // 5
+      { field: ['data', 'products_meta'] }, // 6
+      { field: ['data', 'organization_meta'] }, // 7
+      { field: ['ref'] }, // 8
+    ]},
+    {name: 'questions', source: 'questions', values: [
+      { field: ['data', 'label'] },
+      { field: ['data', 'type'] },
+      { field: ['data', 'options'] },
+      { field: ['data', 'status'] },
+      { field: ['ref'] },
+    ]},
+    {name: 'tags', source: 'tags', values: [
+      { field: ['data', 'name'] },
+      { field: ['data', 'description'] },
+      { field: ['data', 'desktop_image_url'] },
+      { field: ['data', 'mobile_image_url'] },
+      { field: ['data', 'is_featured'] },
+      { field: ['data', 'similar_tags'] },
+      { field: ['data', 'status'] },
+      { field: ['ref'] },
+      { field: ['data', 'type'] },
+    ]},
+    {name: 'hosts', source: 'hosts', values: [
+      { field: ['data', 'name'] }, // 0
+      { field: ['data', 'description'] }, // 1
+      { field: ['data', 'category'] }, // 2
+      { field: ['data', 'profile_image_url'] }, // 3
+      { field: ['data', 'meta_data'] }, // 4
+      { field: ['data', 'job'] }, // 5
+      { field: ['data', 'status'] }, // 6
+      { field: ['data', 'is_featured'] }, // 7
+      { field: ['ref'] }, // 8
+    ]},
+    {name: 'articles', source: 'articles', values: [
+      { field: ['data', 'title'] }, // 0
+      { field: ['data', 'description'] }, // 1
+      { field: ['data', 'short_description'] }, // 2
+      { field: ['data', 'image_url'] }, // 3
+      { field: ['data', 'link'] }, // 4
+      { field: ['data', 'status'] }, // 5
+      { field: ['data', 'is_featured'] }, // 6
+      { field: ['data', 'deleted_at'] }, // 7
+      { field: ['ref'] }, // 8
+    ]},
+    {name: 'organizations', source: 'organizations', values: [
+      { field: ['data', 'name'] },
+      { field: ['data', 'is_featured'] },
+      { field: ['data', 'status'] },
+      { field: ['ref'] },
+    ]},
+    {name: 'newsletters', source: 'newsletters', values: [
+      { field: ['data', 'first_name'] },
+      { field: ['data', 'last_name'] },
+      { field: ['data', 'email'] },
+      { field: ['data', 'consent'] },
+      { field: ['data', 'url'] },
+      { field: ['ref'] },
+      { field: ['data', 'created_at'] },
+    ]},
+    {name: 'contact_us', source: 'contact_us', values: [
+      { field: ['data', 'name'] },
+      { field: ['data', 'email'] },
+      { field: ['data', 'mobile_number'] },
+      { field: ['ref'] },
+    ]},
+    {name: 'partner_requests', source: 'partner_requests', values: [
+      { field: ['data', 'add_on'] }, // 0
+      { field: ['data', 'name'] }, // 1
+      { field: ['data', 'seats_reserved'] }, // 2
+      { field: ['data', 'details'] }, // 3
+      { field: ['data', 'organization'] }, // 4
+      { field: ['data', 'phone'] }, // 5
+      { field: ['data', 'contact_email'] }, // 6
+      { field: ['data', 'prefer_phone'] }, // 7
+      { field: ['data', 'status'] }, // 8
+      { field: ['data', 'link'] }, // 9
+      { field: ['data', 'event_name'] }, // 10
+      { field: ['data', 'deleted_at'] }, // 11
+      { field: ['data', 'created_at'] }, // 12
+      { field: ['data', 'created_by'] }, // 13
+      { field: ['data', 'updated_at'] }, // 14
+      { field: ['data', 'updated_by'] }, // 15
+      { field: ['ref'] }, // 16
+    ]},
+    {name: 'orders', source: 'orders', values: [
+      { field: ['data', 'items'] }, // 0
+      { field: ['data', 'promoGeneratedMeta'] }, // 1
+      { field: ['data', 'promoUsedMeta'] }, // 2
+      { field: ['data', 'transactionId'] }, // 3
+      { field: ['data', 'cardHolderName'] }, // 4
+      { field: ['data', 'price'] }, // 5
+      { field: ['data', 'discount'] }, // 6
+      { field: ['data', 'subtotal'] }, // 7
+      { field: ['data', 'tax'] }, // 8
+      { field: ['data', 'total'] }, // 9
+      { field: ['data', 'status'] }, // 10
+      { field: ['data', 'slug'] }, // 11
+      { field: ['data', 'history'] }, // 12
+      { field: ['data', 'isSubscribe'] }, // 13
+      { field: ['data', 'isEmailSent'] }, // 14
+      { field: ['data', 'deleted_at'] }, // 15
+      { field: ['data', 'created_at'] }, // 16
+      { field: ['data', 'created_by'] }, // 17
+      { field: ['data', 'updated_at'] }, // 18
+      { field: ['data', 'updated_by'] }, // 19
+      { field: ['ref'] }, // 20
+    ]},
+    {name: 'orders_desc', source: 'orders', values: [
+      { field: ['data', 'created_at'], reverse: true }, // 0
+      { field: ['data', 'items'] }, // 1
+      { field: ['data', 'promoGeneratedMeta'] }, // 2
+      { field: ['data', 'promoUsedMeta'] }, // 3
+      { field: ['data', 'transactionId'] }, // 4
+      { field: ['data', 'cardHolderName'] }, // 5
+      { field: ['data', 'price'] }, // 6
+      { field: ['data', 'discount'] }, // 7
+      { field: ['data', 'subtotal'] }, // 8
+      { field: ['data', 'tax'] }, // 9
+      { field: ['data', 'total'] }, // 10
+      { field: ['data', 'status'] }, // 11
+      { field: ['data', 'slug'] }, // 12
+      { field: ['data', 'history'] }, // 13
+      { field: ['data', 'isSubscribe'] }, // 14
+      { field: ['data', 'isEmailSent'] }, // 15
+      { field: ['data', 'deleted_at'] }, // 16
+      { field: ['data', 'created_by'] }, // 17
+      { field: ['data', 'updated_at'] }, // 18
+      { field: ['data', 'updated_by'] }, // 19
+      { field: ['ref'] }, // 20
+    ]},
+    // get marketing material default
+    {name: 'sponsorMaterialMeta', source: 'products', values: [
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 0
+      { field: ['ref'] }, // 1
+    ]},
+    // get marketing material with date only
+    {name: 'sponsorMaterialMeta_sort_date_asc', source: 'products', values: [
+      { field: ['data', 'millisecondStartDt'] }, // 0
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 1
+      { field: ['ref'] }, // 2
+    ]},
+    {name: 'sponsorMaterialMeta_sort_date_desc', source: 'products', values: [
+      { field: ['data', 'millisecondStartDt'], reverse: true }, // 0
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 1
+      { field: ['ref'] }, // 2
+    ]},
+    // get marketing material with topic only / can be used with search
+    {name: 'sponsorMaterialMeta_sort_topic_asc', source: 'products', values: [
+      { field: ['data', 'name'] }, // 0
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 1
+      { field: ['ref'] }, // 2
+    ]},
+    {name: 'sponsorMaterialMeta_sort_topic_desc', source: 'products', values: [
+      { field: ['data', 'name'], reverse: true }, // 0
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 1
+      { field: ['ref'] }, // 2
+    ]},
+    // get marketing material with date and search / can be used with search and topic
+    {name: 'sponsorMaterialMeta_search_sort_date_asc', source: 'products', values: [
+      { field: ['data', 'millisecondStartDt'] }, // 0
+      { field: ['data', 'name'] }, // 1
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 2
+      { field: ['ref'] }, // 3
+    ]},
+    {name: 'sponsorMaterialMeta_search_sort_date_desc', source: 'products', values: [
+      { field: ['data', 'millisecondStartDt'], reverse: true }, // 0
+      { field: ['data', 'name'] }, // 1
+      { field: ['data', 'sponsorMaterialMeta', 'file'] }, // 2
+      { field: ['ref'] }, // 3
+    ]},
+    {name: 'suggestion_desc', source: 'suggestions', values: [
+      { field: ['data', 'created_at'], reverse: true }, // 0
+      { field: ['data', 'name'] }, // 1
+      { field: ['data', 'contact_email'] }, // 2
+      { field: ['data', 'phone'] }, // 3
+      { field: ['data', 'prefer_phone'] }, // 4
+      { field: ['data', 'type'] }, // 5
+      { field: ['data', 'details'] }, // 6
+      { field: ['data', 'status'] }, // 7
+      { field: ['data', 'deleted_at'] }, // 8
+      { field: ['data', 'created_by'] }, // 9
+      { field: ['data', 'updated_at'] }, // 10
+      { field: ['data', 'updated_by'] }, // 11
+      { field: ['ref'] }, // 12
+    ]},
+  ],
+  Lambda(
+    'listConfig',
+    If(Exists(Index(Select(['name'], Var('listConfig')))), 
+      true, 
+      CreateIndex({ 
+        name: Select(['name'], Var('listConfig')), 
+        source: Collection(Select(['source'], Var('listConfig'))),
+        serialized: true,
+        unique: false,
+        values: Select(['values'], Var('listConfig')),
+      })
+    ),
+  ),
+)
+
+// Create Indexes By Terms, Serialized
+Foreach(
+  [
+    {name: 'users_by_email', source: 'users', terms: [
+      { field: ['data', 'email'] },
+    ]},
+    {name: 'users_by_verification_token', source: 'users', terms: [
+      { field: ['data', 'verification_token'] },
+    ]},
+    {name: 'users_by_reset_password_token', source: 'users', terms: [
+      { field: ['data', 'reset_password_token'] },
+    ]},
+    {name: 'users_by_affiliation_id', source: 'users', terms: [
+      { field: ['data', 'affiliation_id'] },
+    ]},
+    {name: 'tags_by_name', source: 'users', terms: [
+      { field: ['data', 'name'] },
+    ]},
+    {name: 'promo_codes_by_code', source: 'promo_codes', terms: [
+      { field: ['data', 'code'] },
+    ]},
+    {name: 'promo_codes_by_organization_meta', source: 'promo_codes', terms: [
+      { field: ['data', 'status'] },
+      { field: ['data', 'organization_meta'] },
+    ]},
+    {name: 'organizations_by_owner_id', source: 'organizations', terms: [
+      { field: ['data', 'owner_id'] },
+    ]},
+    {name: 'products_by_slug', source: 'products', terms: [
+      { field: ['data', 'slug'] },
+    ]},
+    {name: 'get_page_by_name', source: 'pages', terms: [
+      { field: ['data', 'page'] },
+    ]},
+    {name: 'products_for_users', source: 'products', terms: [
+      { field: ['data', 'type'] },
+      { field: ['data', 'status'] },
+      { field: ['data', 'isReserved'] },
+    ]},
+    {name: 'tags_featured', source: 'tags', terms: [
+      { field: ['data', 'is_featured'] },
+      { field: ['data', 'status'] },
+    ]},
+    {name: 'products_status_isreserved', source: 'products', terms: [
+      { field: ['data', 'status'] },
+      { field: ['data', 'isReserved'] },
+    ]},
+    {name: 'products_by_tag_id', source: 'products', terms: [
+      { field: ['data', 'tagMeta', 'value'] },
+    ]},
+    {name: 'products_by_host_id', source: 'products', terms: [
+      { field: ['data', 'hostMeta', 'value'] },
+    ]},
+    {name: 'products_by_sponsor_id', source: 'products', terms: [
+      { field: ['data', 'sponsorMeta', 'value'] },
+    ]},
+    {name: 'products_by_reservedBy', source: 'products', terms: [
+      { field: ['data', 'reservedBy'] },
+      { field: ['data', 'isReserved'] },
+      { field: ['data', 'status'] },
+    ]},
+    {name: 'products_by_sponsorMeta', source: 'products', terms: [
+      { field: ['data', 'status'] },
+      { field: ['data', 'sponsorMeta', 'value'] },
+    ]},
+    {name: 'orders_by_created_by', source: 'orders', terms: [
+      { field: ['data', 'created_by'] },
+    ]},
+    {name: 'tags_by_slug', source: 'tags', terms: [
+      { field: ['data', 'slug'] },
+      { field: ['data', 'status'] },
+    ]},
+    {name: 'hosts_by_name', source: 'hosts', terms: [
+      { field: ['data', 'name'] },
+    ]},
+    {name: 'attendees_by_userId_status', source: 'attendees', terms: [
+      { field: ['data', 'userId'] },
+      { field: ['data', 'status'] },
+    ]},
+    {name: 'organizations_by_owner_status', source: 'organizations', terms: [
+      { field: ['data', 'owner_id'] },
+      { field: ['data', 'status'] },
+    ]},
+  ],
+  Lambda(
+    'listConfig',
+    If(Exists(Index(Select(['name'], Var('listConfig')))), 
+      true, 
+      CreateIndex({ 
+        name: Select(['name'], Var('listConfig')), 
+        source: Collection(Select(['source'], Var('listConfig'))),
+        serialized: true,
+        unique: Select(['unique'], Var('listConfig'),false),
+        terms: Select(['terms'], Var('listConfig')),
+      })
+    ),
+  ),
+)
+
+// Create Indexes By Terms and Values Serialized
+Foreach(
+  [
+    {
+      name: 'users_table_view', source: 'users',
+      terms: [
+        { field: ['data', 'is_deleted'] },
+      ],
+      values: [
+        { field: ['data', 'first_name'] },
+        { field: ['data', 'last_name'] },
+        { field: ['data', 'email'] },
+        { field: ['data', 'role'] },
+        { field: ['data', 'status'] },
+        { field: ['data', 'is_verified'] },
+        { field: ['data' , 'affiliation_name']},
+        { field: ['ref'] },
+      ]
+    },
+    {
+      name: 'products_sort_by_startdate_asc', source: 'products',
+      terms: [
+        { field: ['ref'] },
+      ],
+      values: [
+        { field: ['data', 'millisecondStartDt'] },
+        { field: ['ref'] },
+      ]
+    },
+    {
+      name: 'products_for_partner_dashboard', source: 'products',
+      terms: [
+        { field: ['data', 'status'] },
+        { field: ['data', 'isReserved'] },
+      ],
+      values: [
+        { field: ['data', 'millisecondRegistrationStartDt'], reverse: true }, // 0
+        { field: ['data', 'millisecondStartDt'] }, // 1
+        { field: ['data', 'registrationStartDt'] }, // 2
+        { field: ['data', 'imageUrl']}, // 3
+        { field: ['data', 'slug']}, // 4
+        { field: ['data', 'name']}, // 5
+        { field: ['data', 'shortDescription']}, // 6
+        { field: ['data', 'description']}, // 7
+        { field: ['data', 'price']}, // 8
+        { field: ['ref'] }, // 9
+      ]
+    },
+    {
+      name: 'attendees_desc', source: 'attendees', 
+      terms: [
+        { field: ['data', 'productId'] },
+      ],
+      values: [
+        { field: ['data', 'created_at'], reverse: true  }, // 0
+        { field: ['data', 'orderId'] }, // 1
+        { field: ['data', 'productId'] }, // 2
+        { field: ['data', 'userId'] }, // 3
+        { field: ['data', 'status'] }, // 4
+        { field: ['data', 'comments'] }, // 5
+        { field: ['data', 'answerMeta'] }, // 6
+        { field: ['data', 'deleted_at'] }, // 7
+        { field: ['data', 'created_by'] }, // 8
+        { field: ['data', 'updated_at'] }, // 9
+        { field: ['data', 'updated_by'] }, // 10
+        { field: ['ref'] }, // 11
+      ]
+    },
+    {
+      name: 'attendee_productid_userid_status', source: 'attendees', 
+      terms: [
+        { field: ['data', 'productId'] },
+        { field: ['data', 'userId'] },
+        { field: ['data', 'status'] },
+      ],
+      values: [
+        { field: ['data', 'orderId'] }, // 0
+        { field: ['data', 'comments'] }, // 1
+        { field: ['data', 'created_at'] }, // 2
+        { field: ['ref'] }, // 3
+      ]
+    },
+  ],
+  Lambda(
+    'listConfig',
+    If(Exists(Index(Select(['name'], Var('listConfig')))), 
+      true, 
+      CreateIndex({ 
+        name: Select(['name'], Var('listConfig')), 
+        source: Collection(Select(['source'], Var('listConfig'))),
+        serialized: true,
+        unique: false,
+        terms: Select(['terms'], Var('listConfig')),
+        values: Select(['values'], Var('listConfig')),
+      })
+    ),
+  ),
+)
+
+/*
+@Note: Initial User Record
+P.S: You can use Abort() to stop the loop but for this case, we want to continue the whole process
+*/ 
+
+If(Exists(Match(Index("users_by_email"), 'elite@ajumaven.ca')),
+  true,
+  Create(
+    Collection('users'),
+    { data: { 
+      first_name: "Elite",
+      last_name: "Developer",
+      email: "elite@ajumaven.ca",
+      password: "$2b$10$8DkjC4pz4TKAurf1cxQa5eymtJ5oO1GHRDYdqjd9ehQUyHeZlWchW",
+      status: "active",
+      role: "developer",
+      timezone: '',
+      is_verified: true,
+      is_deleted: false,
+      verification_date: '',
+      verificaiton_token: '',
+      affiliation_id: '',
+      last_login_dt: '',
+      cart_meta: '',
+      card_meta: '',
+      created_by: '',
+      created_at: '',
+      updated_by: '',
+      updated_at: '',
+    } }
+  )
+)
+
+/*
+@Note: Manually create a organization record
+*/

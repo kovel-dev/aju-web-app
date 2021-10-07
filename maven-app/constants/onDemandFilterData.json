@@ -1,0 +1,13 @@
+[
+    {
+      "label":"Level",
+      "id":"level",
+      "name":"level",
+      "options": [
+        {"key": "beginner", "value": "Beginner"},
+        {"key": "intermediate", "value": "Intermediate"},
+        {"key": "advanced", "value": "Advanced"}
+      ],
+      "placehold":"Select"
+    }
+  ]

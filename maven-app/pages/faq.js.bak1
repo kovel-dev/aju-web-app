@@ -1,0 +1,116 @@
+import {
+  Accordion,
+  Button,
+  Footer,
+  Heading,
+  Layout,
+  MailingList,
+  Meta,
+  Navbar,
+  Typography,
+} from 'components'
+import faqsData from 'constants/faqsData.json'
+import meta from 'constants/meta'
+
+const breadcrumb = [
+  {
+    link: '/',
+    label: 'Home',
+  },
+  {
+    link: '/faq',
+    label: 'Help',
+  },
+]
+
+const Faq = () => {
+  return (
+    <section className="min-h-fullpage">
+      <Meta
+        title={meta.faq.title}
+        keywords={meta.faq.keywords}
+        description={meta.faq.description}
+      />
+      <header className="w-full">
+        <Navbar />
+      </header>
+      <main>
+        <Heading heading="Customer Support" breadcrumbs={breadcrumb} />
+        <div className="mt-6 mb-8 lg:mb-12 max-h-banner overflow-hidden">
+          <img
+            src="/images/customer_support.jpg"
+            alt="customer suppport image"
+            className="w-full h-full help-banner object-cover max-w-full max-h-banner object-right"
+          />
+        </div>
+
+        <Layout className="text-center">
+          <Typography className="mb-6 font-medium font-mont">
+            We are ready to engage you in Jewish learning that captivates the
+            soul and inspires the mind. What can we{' '}
+            <span className="sm:whitespace-nowrap">help you with today?</span>
+          </Typography>
+          <div className="flex flex-col items-center justify-center mb-12 lg:flex-row lg:space-x-7">
+            <Button
+              type="button"
+              buttonContent="Contact Maven Support"
+              action={() => {
+                location.href = 'mailto:mavensupport@aju.edu'
+              }}
+              className="w-full sm:w-auto mb-7 lg:mb-0"
+            />
+            <Button
+              type="button"
+              buttonContent="Press and Media Inquiries"
+              action={() => {
+                location.href = 'mailto:communications@aju.edu'
+              }}
+              className="w-full sm:w-auto"
+            />
+          </div>
+
+          <Typography
+            variant="subheading"
+            className="w-full lg:w-auto py-6 lg:py-3.5 border-t-2 border-b-2 border-gray-100 inline-block mb-6"
+          >
+            FAQs
+          </Typography>
+
+          <Typography className="mb-12">
+            Thank you for visiting our Frequently Asked Questions page. We have
+            curated a list of most commonly asked questions for you below. If
+            you require additional assistance, please submit a ticket to our
+            Maven Support by sending an email to{' '}
+            <a href="mailto:mavensupport@aju.edu">mavensupport@aju.edu</a>. Our
+            helpdesk will do their do their best to answer your question within
+            1 business day.
+          </Typography>
+
+          {faqsData.map(({ title, items }, faqItemIndex) => (
+            <Accordion title={title} items={items} key={faqItemIndex} />
+          ))}
+
+          <Typography className="mb-6 text-center">
+            Require additional assistance? Contact our Maven Support now or drop
+            us an email.
+          </Typography>
+
+          <div className="mb-12">
+            <Button
+              type="button"
+              buttonContent="mavensupport@aju.edu"
+              action={() => {
+                location.href = 'mailto:mavensupport@aju.edu'
+              }}
+              icon={'/images/email.svg'}
+            />
+          </div>
+        </Layout>
+      </main>
+      <MailingList />
+      <Footer />
+    </section>
+  )
+}
+
+export default Faq

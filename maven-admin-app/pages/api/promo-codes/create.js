@@ -1,0 +1,55 @@
+import moment from 'moment'
+import User from '../../../lib/models/user'
+import PromoCode from '../../../lib/models/promo-code'
+import { getSession } from 'next-auth/client'
+import { query as q } from 'faunadb'
+import { faunaClient } from '../../../lib/config/fauna'
+
+async function handler(req, res) {
+  if (req.method == 'POST') {
+    const session = await getSession({ req: req })
+
+    if (!session) {
+      res.status(401).json([{ key: 'general', values: 'Not Authenticated' }])
+      return
+    }
+
+    const data = req.body
+    let promoCode = new PromoCode(data)
+
+    // Validate promoCode input
+    try {
+      await promoCode.validate()
+    } catch (error) {
+      res.status(422).json(error)
+      return
+    }
+
+    let user = new User({})
+    const currentUserRefNumber = session.user.id
+
+    // update create and update details
+    promoCode.code = promoCode.code.replace(/\s/g, '')
+    promoCode.created_at = moment().format('YYYY-MM-DD HH:mm:ss')
+    promoCode.created_by = currentUserRefNumber
+    promoCode.updated_at = moment().format('YYYY-MM-DD HH:mm:ss')
+    promoCode.updated_by = currentUserRefNumber
+
+    // save/update promoCode
+    try {
+      return await faunaClient
+        .query(
+          q.Create(q.Collection('promo_codes'), { data: promoCode.getValues() })
+        )
+        .then((result) => {
+          res.status(200).json({ message: 'Created promo code!' })
+          return
+        })
+    } catch (error) {
+      res.status(422).json([{ key: 'general', values: error.description }])
+      return
+    }
+  }
+}
+
+export default handler

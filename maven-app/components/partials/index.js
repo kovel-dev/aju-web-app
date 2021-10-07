@@ -1,0 +1,8 @@
+export { Heading3 } from './Heading/Heading3'
+export { Heading4 } from './Heading/Heading4'
+export { Button } from './Button'
+export { Icon } from './Icon'
+export { Text } from './Text'
+export { Richtext } from './Richtext'
+export { Video } from './Video'
+export { Content } from './Content'

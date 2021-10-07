@@ -1,0 +1,89 @@
+{
+  "event1": {
+    "event_name": "Test Event 1",
+    "organization": false,
+    "event_brief": "Brief two line description about class or event",
+    "event_description": "This section lets the student know what they can expect from the class or event. Indicate details about the speakers, teachers and/or sponsors. Mention any prerequisites or requirements to attend or purchase the product. Indicate if this product is part of a series. If this is an on-demand product, indicate the access window in number of days.. If this is part of a series, please indicate here. Followed by a listed breakdown of the other videos in the series",
+    "date_posted": "Jan 4, 2020",
+    "price": 50,
+    "start_date": "Feb 8, 2021",
+    "end_date": "Feb 8, 2021",
+    "product_type": "Product Type (class, event, series or on-demand)",
+    "start_time": "8:00pm PST",
+    "address": "Online or Address \n https://meet.google.com/",
+    "instruction_language": "Instruction language",
+    "class_full": true,
+    "description_video": [
+      {
+        "title": "Part 1",
+        "description": "Description 1"
+      },
+      {
+        "title": "Part 2",
+        "description": "Description 2"
+      },
+      {
+        "title": "Part 3",
+        "description": "Description 3"
+      }
+    ]
+  },
+  "event2": {
+    "event_name": "Test Event 2",
+    "organization": false,
+    "event_brief": "Brief two line description about class or event",
+    "event_description": "This section lets the student know what they can expect from the class or event. Indicate details about the speakers, teachers and/or sponsors. Mention any prerequisites or requirements to attend or purchase the product. Indicate if this product is part of a series. If this is an on-demand product, indicate the access window in number of days.. If this is part of a series, please indicate here. Followed by a listed breakdown of the other videos in the series",
+    "date_posted": "Jan 4, 2020",
+    "price": 50,
+    "start_date": "Feb 8, 2021",
+    "end_date": "Feb 8, 2021",
+    "product_type": "Product Type",
+    "start_time": "8:00pm PST",
+    "address": "Online or Address \n https://meet.google.com/",
+    "instruction_language": "Instruction language",
+    "class_full": false,
+    "description_video": [
+      {
+        "title": "Part 1",
+        "description": "Description 1"
+      },
+      {
+        "title": "Part 2",
+        "description": "Description 2"
+      },
+      {
+        "title": "Part 3",
+        "description": "Description 3"
+      }
+    ]
+  },
+  "event3": {
+    "event_name": "Test Event 3",
+    "organization": true,
+    "event_brief": "Brief two line description about class or event",
+    "event_description": "This section lets the student know what they can expect from the class or event. Indicate details about the speakers, teachers and/or sponsors. Mention any prerequisites or requirements to attend or purchase the product. Indicate if this product is part of a series. If this is an on-demand product, indicate the access window in number of days.. If this is part of a series, please indicate here. Followed by a listed breakdown of the other videos in the series",
+    "date_posted": "Jan 4, 2020",
+    "price": 50,
+    "start_date": "Feb 8, 2021",
+    "end_date": "Feb 8, 2021",
+    "product_type": "Product Type",
+    "start_time": "8:00pm PST",
+    "address": "Online or Address \n https://meet.google.com/",
+    "instruction_language": "Instruction language",
+    "class_full": false,
+    "description_video": [
+      {
+        "title": "Part 1",
+        "description": "Description 1"
+      },
+      {
+        "title": "Part 2",
+        "description": "Description 2"
+      },
+      {
+        "title": "Part 3",
+        "description": "Description 3"
+      }
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+[            
+  {
+    "label": "Hebrew",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/hebrew"
+  },
+  {
+    "label": "Jewish Thought",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/jewish-thought"
+  },
+  {
+    "label": "Art and Art History",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/art-art-history"
+  },
+  {
+    "label": "Current Affairs",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/current-affairs"
+  },
+  {
+    "label": "Literature",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/literature"
+  },
+  {
+    "label": "Culture and Media",
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "link": "/events-classes/culture-media"
+  }
+]

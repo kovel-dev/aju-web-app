@@ -1,0 +1,20 @@
+[
+  {
+    "accoundHolderName": "John Doe",
+    "date": "Feb 21 | 4 PM",
+    "program": "PROGRAM NAME",
+    "image": "/images/program.png",
+    "sponsor": "Johnson & Johnson",
+    "confirmationNumber": "####",
+    "link": "/my-account/event1'"
+  },
+  {
+    "accoundHolderName": "John Doe",
+    "date": "DATE | TIME",
+    "program": "PROGRAM NAME",
+    "image": "/images/program.png",
+    "sponsor": "",
+    "confirmationNumber": "####",
+    "link": "/my-account/event1'"
+  }
+]

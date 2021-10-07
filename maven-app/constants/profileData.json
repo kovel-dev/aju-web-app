@@ -1,0 +1,72 @@
+[
+  {
+    "firstName": "Rabbi Sherre",
+    "lastName": "Hirsch",
+    "job": "Founder",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Rabbi Sherre Hirsch is the Chief Innovation Officer at American Jewish University. She made headlines as the first female rabbi at Sinai Temple, the largest Conservative congregation on the west coast. She served as Senior Rabbinic Scholar at Hillel International, where she created and developed Hillelwell, an initiative for Hillels worldwide to become the recognized address for preventative mental health. A thought leader and author on spirituality and religion, Rabbi Hirsch has appeared on the Today Show, ABC News, Extra, and PBS, among other outlets, and has been a contributor to Time.com, Oprah Magazine, the Jewish Journal, the Hollywood Journal, and more.",
+    "name":"Rabbi Sherre Hirsch",
+    "profile_image_url": "/images/sherre_hirsch.jpg"
+  },
+  {
+    "firstName": "Michelle",
+    "lastName": "Starkman",
+    "job": "Co-Founder",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Michelle Starkman is AJU’s Vice President of Communications, where she is responsible for leading the university’s internal and external communications and media relations strategies. She also oversees digital content, manages the University’s marketing strategy, advertising, and serves on the university’s senior team. Prior to joining AJU in 2017, Michelle served as Admissions and Marketing Director at a local Jewish day school, and as the Director of Marketing and Communications for a local management consulting firm. Michelle holds an MBA from Pepperdine’s Graziadio School of Business, and an M.A. and B.A. in Political Science from Cal State Northridge.",
+    "name":"Michelle Starkman",
+    "profile_image_url": "/images/michelle_srarkman.jpg"
+  },
+  {
+    "firstName": "Dr. Rotem",
+    "lastName": "Rozental",
+    "job": "Chief Curator, Senior Director of Arts and Culture",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Dr. Rotem Rozental is the Chief Curator of the American Jewish University in Los Angeles, where she serves as the Assistant Dean of the Whizin Center for Continuing Education and the Director of the Institute for Jewish Creativity. In these roles, Rotem works with and mentors artists throughout various stages of their careers, while spearheading annual exhibition spaces, cultural programming, a growing network of Jewish artists in Los Angeles, cross-city collaborations, institutional collections, educational initiatives and various projects around performing and visual arts. Rotem also mentored artists and organized exhibitions internationally, and her writings and scholarly texts appeared in publications such as Artforum.com, Philosophy of Photography and Tablet.",
+    "name":"Dr. Rotem Rozental",
+    "profile_image_url": "/images/rotem_rozental.jpg"
+  },
+  {
+    "firstName": "Sherry ",
+    "lastName": "Heyerly",
+    "job": "Director of Office of Innovation Operations",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Sherry Heyerly is the Director of Operations for the Office of Innovation at American Jewish University. Sherry oversees the administrative operations of this multi-faceted department, including fiscal and office management, special projects, and supervision of digital delivery systems. Sherry transitioned into the world of education from the dental field, bringing with her warmth, professionalism, and dedication.",
+    "name":"Sherry Heyerly",
+    "profile_image_url": "/images/sherry_heyerly.jpg"
+  },
+  {
+    "firstName": "Chloe",
+    "lastName": "Noland",
+    "job": "Program Operations Specialist",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Chloe Noland is a writer and information professional, currently working as the Program Operations Specialist in the Office of Innovation. She received her BA in Writing & Literature from California College of the Arts, and her MLIS from San Jose State University. Her interests include metadata, content management, data analytics, and research.",
+    "name":"Chloe Noland",
+    "profile_image_url": "/images/chloe_noland.jpg"
+  },
+  {
+    "firstName": "Aliza",
+    "lastName": "Klainman",
+    "job": "Community Hebrew Program Director",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Aliza Klainman is the Director of the Community Hebrew Program for the Whizin Center of Continuing Education and an instructor at American Jewish University. Aliza brings to the program her excellent organizational skills and dedication. As well as years of experience teaching adults in the Ulpan method of Israel. She completed her education in Israel and received her teaching credentials from the Ministry of Education, Israel, and the Teachers Seminar Institute in Beer Sheva.",
+    "name":"Aliza Klainman",
+    "profile_image_url": "/images/aliza_klainman.jpg"
+  },
+  {
+    "firstName": "Natalie ",
+    "lastName": "Gross",
+    "job": "Communications Manager",
+    "speaker": false,
+    "img": "https://images.unsplash.com/photo-1564832586408-3b10f4f41541?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1190&q=80",
+    "bio": "Natalie Gross is the Communications Manager at AJU, who brings seven years of marketing and communications expertise to the small but mighty communications team. She is passionate about education and previously worked at a local nonprofit that provided education services to students throughout Los Angeles. Natalie, a former Alonim-er and CIT alumna, has been happy to rejoin the AJU family and continue the organization’s mission to elevate the Jewish journeys of its community members.",
+    "name":"Natalie Gross",
+    "profile_image_url": "/images/natalie_gross.jpg"
+  }
+]
